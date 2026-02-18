@@ -31,9 +31,9 @@ def _sanitize(text):
         text = text.replace(uc, ascii_eq)
     return text
 
-# ── F1 Brand Colors ──────────────────────────────────────────────────────────
-F1_RED = (225, 6, 0)           # #E10600
-F1_DARK = (21, 21, 30)         # #15151E
+# ── Accent Colors (distinct from official F1 brand) ─────────────────────────
+F1_RED = (195, 15, 30)         # Racing red (not F1 brand #E10600)
+F1_DARK = (28, 30, 42)         # Dark charcoal
 LIGHT_GRAY = (240, 240, 240)   # #F0F0F0
 WHITE = (255, 255, 255)
 MEDIUM_GRAY = (180, 180, 180)
@@ -63,7 +63,7 @@ OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "output")
 class F1PDF(FPDF):
     """Custom FPDF subclass with F1 2026 branding."""
 
-    def __init__(self, title="F1 2026 Reference", subtitle=""):
+    def __init__(self, title="2026 Season Reference", subtitle=""):
         super().__init__(orientation="P", unit="mm", format="Letter")
         self.doc_title = title
         self.doc_subtitle = subtitle
@@ -107,7 +107,7 @@ class F1PDF(FPDF):
         self.ln(2)
         self.set_font("Helvetica", "", 8)
         self.set_text_color(*DARK_GRAY)
-        self.cell((self.w - 20) / 2, 8, "F1 2026 Reference", align="L")
+        self.cell((self.w - 20) / 2, 8, "Unofficial 2026 Season Guide", align="L")
         self.cell((self.w - 20) / 2, 8, f"Page {self.page_no() - 1}", align="R")
 
     # ── Cover Page ────────────────────────────────────────────────────────
@@ -133,33 +133,42 @@ class F1PDF(FPDF):
             self.circle(self.w * 0.82, self.h * 0.25, 35, style="F")
             self.circle(self.w * 0.15, self.h * 0.72, 22, style="F")
 
-        # Title (larger fonts: 42pt / 30pt)
-        self.set_y(self.h / 2 - 45)
-        self.set_font("Helvetica", "B", 42)
+        # "UNOFFICIAL FAN GUIDE" badge at top
+        self.set_y(self.h / 2 - 65)
+        badge_w = 70
+        badge_x = (self.w - badge_w) / 2
+        self.set_draw_color(*F1_RED)
+        self.set_line_width(0.8)
+        self.set_fill_color(*F1_RED)
+        self.rect(badge_x, self.get_y(), badge_w, 8, "DF")
+        self.set_font("Helvetica", "B", 9)
         self.set_text_color(*WHITE)
-        self.cell(0, 18, "FORMULA 1", align="C")
-        self.ln(20)
-        self.set_font("Helvetica", "B", 30)
-        self.cell(0, 14, "2026 SEASON", align="C")
-        self.ln(22)
+        self.cell(0, 8, "UNOFFICIAL FAN GUIDE", align="C")
+        self.ln(18)
 
-        # Thicker red accent bar (100mm wide, 5mm tall)
+        # Main title: "2026 SEASON GUIDE"
+        self.set_font("Helvetica", "B", 32)
+        self.set_text_color(*WHITE)
+        self.cell(0, 14, "2026 SEASON GUIDE", align="C")
+        self.ln(18)
+
+        # Red accent bar
         line_w = 100
         x_start = (self.w - line_w) / 2
         self.set_fill_color(*F1_RED)
-        self.rect(x_start, self.get_y(), line_w, 5, "F")
-        self.ln(14)
+        self.rect(x_start, self.get_y(), line_w, 4, "F")
+        self.ln(12)
 
-        # Subtitle
-        self.set_font("Helvetica", "", 18)
+        # Document subtitle (e.g., "Race Schedule", "Driver & Team Guide")
+        self.set_font("Helvetica", "", 20)
         self.set_text_color(*MEDIUM_GRAY)
         self.cell(0, 10, self.doc_subtitle, align="C")
-        self.ln(35)
+        self.ln(30)
 
         # Tagline
         self.set_font("Helvetica", "", 11)
         self.set_text_color(*DARK_GRAY)
-        self.cell(0, 6, "A Beginner's Guide to Formula 1", align="C")
+        self.cell(0, 6, "A Beginner's Guide to the Formula 1 Season", align="C")
         self.ln(8)
 
         # Bottom accent line
@@ -167,6 +176,18 @@ class F1PDF(FPDF):
         x_bot = (self.w - bot_w) / 2
         self.set_fill_color(*F1_RED)
         self.rect(x_bot, self.get_y(), bot_w, 1.5, "F")
+
+        # Disclaimer at bottom of cover
+        self.set_y(self.h - 30)
+        self.set_font("Helvetica", "", 7)
+        self.set_text_color(*DARK_GRAY)
+        disclaimer = (
+            "This is an unofficial fan-made guide. Not associated with Formula 1, "
+            "FIA, or any F1 team. Formula 1, F1, and Grand Prix are trademarks "
+            "of Formula One Licensing BV. All trademarks are property of their "
+            "respective owners."
+        )
+        self.multi_cell(0, 3.5, disclaimer, align="C")
 
     # ── Section Header (dynamic underline) ────────────────────────────────
     def section_header(self, title, size=16):

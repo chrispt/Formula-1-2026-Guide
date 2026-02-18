@@ -8,7 +8,7 @@ import f1_graphics
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Strategy 101",
+        title="2026 Strategy 101",
         subtitle="Understanding Race Strategy"
     )
     pdf.add_cover_page()
@@ -349,7 +349,7 @@ def generate():
         "even more valuable."
     )
 
-    pdf.save("F1-2026-Strategy-101.pdf")
+    pdf.save("2026-Strategy-101.pdf")
 
 
 if __name__ == "__main__":

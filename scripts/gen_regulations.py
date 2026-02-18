@@ -8,7 +8,7 @@ import f1_graphics
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Regulation Changes",
+        title="2026 Regulation Changes",
         subtitle="Technical & Sporting Regulations"
     )
     pdf.add_cover_page()
@@ -134,10 +134,10 @@ def generate():
         "minimize drag and maximize top speed",
         "Z-Mode (high downforce): Wings in maximum downforce configuration "
         "for cornering and braking zones",
-        "Unlike DRS, active aero is available to all cars, not just those "
-        "within 1 second of the car ahead",
-        "The system operates automatically based on speed, throttle position, "
-        "and track zones, with some driver input",
+        "X-Mode is available to all cars on designated straights (a separate "
+        "Overtake Mode power boost requires being within 1 second of the car ahead)",
+        "X-Mode is driver-activated via a steering wheel button, similar to "
+        "how DRS was used; the system returns to high-downforce mode on braking",
     ])
 
     pdf.subsection_header("DRS vs. Active Aero Comparison")
@@ -145,10 +145,10 @@ def generate():
         headers=["Feature", "DRS (2011-2025)", "Active Aero (2026+)"],
         data=[
             ["Wings affected", "Rear only", "Front and rear"],
-            ["Activation", "Within 1s of car ahead", "Available to all cars"],
-            ["Detection zones", "Specific DRS zones", "Speed/zone-based"],
-            ["Modes", "Open / Closed", "Multiple configurations"],
-            ["Driver control", "Manual button", "Automatic + driver input"],
+            ["Activation", "Within 1s of car ahead", "X-Mode: all cars; Overtake boost: within 1s"],
+            ["Detection zones", "Specific DRS zones", "Designated straights"],
+            ["Modes", "Open / Closed", "X-Mode (low drag) / Z-Mode (high downforce)"],
+            ["Driver control", "Manual button", "Driver-activated button"],
             ["Purpose", "Reduce rear drag for overtaking", "Full drag/downforce management"],
         ],
         col_widths=[35, 65, 65],
@@ -270,8 +270,8 @@ def generate():
     pdf.subsection_header("Grid Expansion")
     pdf.body_text(
         "With 11 teams and 22 drivers, qualifying knockout thresholds are "
-        "adjusted: Q1 eliminates 5 drivers (positions 18-22), Q2 eliminates "
-        "5 more (positions 13-17), and Q3 features the top 12 drivers."
+        "adjusted: Q1 eliminates 6 drivers (positions 17-22), Q2 eliminates "
+        "6 more (positions 11-16), and Q3 features the top 10 drivers."
     )
 
     pdf.subsection_header("Sprint Format")
@@ -315,7 +315,7 @@ def generate():
         "with new manufacturers and teams."
     )
 
-    pdf.save("F1-2026-Regulation-Changes.pdf")
+    pdf.save("2026-Regulation-Changes.pdf")
 
 
 if __name__ == "__main__":

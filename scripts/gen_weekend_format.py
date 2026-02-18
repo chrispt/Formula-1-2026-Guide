@@ -8,7 +8,7 @@ import f1_graphics
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Race Weekend Format",
+        title="2026 Race Weekend Format",
         subtitle="Weekend Schedules, Qualifying & Points"
     )
     pdf.add_cover_page()
@@ -132,16 +132,16 @@ def generate():
     pdf.styled_table(
         headers=["Phase", "Duration", "Drivers", "Eliminated", "Grid Positions Set"],
         data=[
-            ["Q1", "18 minutes", "All 22", "Slowest 5", "P18 - P22"],
-            ["Q2", "15 minutes", "Remaining 17", "Slowest 5", "P13 - P17"],
-            ["Q3", "12 minutes", "Top 12", "None (ranked)", "P1 - P12"],
+            ["Q1", "18 minutes", "All 22", "Slowest 6", "P17 - P22"],
+            ["Q2", "15 minutes", "Remaining 16", "Slowest 6", "P11 - P16"],
+            ["Q3", "12 minutes", "Top 10", "None (ranked)", "P1 - P10"],
         ],
         col_widths=[18, 26, 34, 38, 50],
     )
 
     pdf.body_text(
-        "With 22 drivers (11 teams), Q1 eliminates the bottom 5, Q2 the "
-        "next 5, and Q3 determines the top 12 positions. The fastest "
+        "With 22 drivers (11 teams), Q1 eliminates the bottom 6, Q2 the "
+        "next 6, and Q3 determines the top 10 positions. The fastest "
         "driver in Q3 earns pole position."
     )
 
@@ -161,9 +161,9 @@ def generate():
     pdf.styled_table(
         headers=["Phase", "Duration", "Eliminated"],
         data=[
-            ["SQ1", "12 minutes", "Slowest 5"],
-            ["SQ2", "10 minutes", "Slowest 5"],
-            ["SQ3", "8 minutes", "None (top 12 ranked)"],
+            ["SQ1", "12 minutes", "Slowest 6"],
+            ["SQ2", "10 minutes", "Slowest 6"],
+            ["SQ3", "8 minutes", "None (top 10 ranked)"],
         ],
         col_widths=[30, 30, 60],
     )
@@ -232,8 +232,8 @@ def generate():
         col_widths=[17.4] * 11,
     )
     pdf.body_text(
-        "An additional 1 point is awarded for the fastest lap, provided "
-        "the driver finishes in the top 10."
+        "Points are awarded to the top 10 finishers only. There is no "
+        "bonus point for fastest lap (abolished from 2025 onwards)."
     )
 
     pdf.subsection_header("Sprint Points (Top 8)")
@@ -251,19 +251,19 @@ def generate():
 
     pdf.info_box(
         "Maximum Points Per Weekend",
-        "Standard weekend: 26 pts (25 for win + 1 fastest lap). "
-        "Sprint weekend: 34 pts (8 Sprint win + 25 race win + 1 fastest lap)."
+        "Standard weekend: 25 pts (race win). "
+        "Sprint weekend: 33 pts (8 Sprint win + 25 race win)."
     )
 
     # Stat callout for points
     pdf.stat_callout([
-        ("26", "Max Pts (Standard)"),
-        ("34", "Max Pts (Sprint)"),
+        ("25", "Max Pts (Standard)"),
+        ("33", "Max Pts (Sprint)"),
         ("25", "Race Win"),
         ("8", "Sprint Win"),
     ])
 
-    pdf.save("F1-2026-Race-Weekend-Format.pdf")
+    pdf.save("2026-Race-Weekend-Format.pdf")
 
 
 if __name__ == "__main__":

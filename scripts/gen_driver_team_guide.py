@@ -7,7 +7,7 @@ from f1_pdf_style import F1PDF, TEAM_COLORS
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Driver & Team Guide",
+        title="2026 Driver & Team Guide",
         subtitle="Teams, Drivers & Key Storylines"
     )
     pdf.add_cover_page()
@@ -60,13 +60,13 @@ def generate():
             "pu": "Ford",
             "drivers": "Max Verstappen (NED) / Isack Hadjar (FRA)",
             "story": (
-                "Four-time consecutive constructors' champions (2021-2024), Red Bull "
+                "Back-to-back constructors' champions (2022-2023), Red Bull "
                 "enter 2026 with Max Verstappen hungry for redemption after narrowly "
                 "losing the 2025 title to Lando Norris by just 2 points. Despite "
-                "winning 6 of the final 9 races, Verstappen fell agonizingly short. "
+                "a remarkable late-season surge, Verstappen fell agonizingly short. "
                 "The four-time world champion (2021-2024) is determined to reclaim "
-                "the championship under the radical new regulations. Rookie Isack "
-                "Hadjar, the 2024 F2 champion, steps up after a strong sophomore "
+                "the championship under the radical new regulations. Isack "
+                "Hadjar, the 2024 F2 runner-up, steps up after a strong rookie "
                 "season at Racing Bulls in 2025 (51 points, including a podium)."
             ),
         },
@@ -135,14 +135,14 @@ def generate():
         {
             "name": "Alpine F1 Team",
             "base": "Enstone, UK / Viry, France",
-            "principal": "Oliver Oakes",
+            "principal": "Flavio Briatore (Exec. Advisor)",
             "pu": "Mercedes",
             "drivers": "Pierre Gasly (FRA) / Franco Colapinto (ARG)",
             "story": (
                 "Alpine's biggest change: dropping their in-house Renault engine "
                 "for Mercedes power. Pierre Gasly leads the team alongside Franco "
                 "Colapinto, now in his second season after replacing Jack Doohan "
-                "mid-way through 2025 and impressing with his speed. The team aims "
+                "early in 2025 and impressing with his speed. The team aims "
                 "for a fresh start with new leadership."
             ),
         },
@@ -170,7 +170,7 @@ def generate():
                 "that saw him promoted to Red Bull mid-season, then reassigned for "
                 "2026. British teenage talent Arvid Lindblad is the grid's only "
                 "true rookie, graduating from the Red Bull junior program. At just "
-                "17, Lindblad is one of the youngest drivers in F1 history."
+                "18, Lindblad is one of the youngest drivers in F1 history."
             ),
         },
         {
@@ -203,7 +203,7 @@ def generate():
         },
         {
             "name": "Cadillac F1 Team",
-            "base": "USA (location TBA)",
+            "base": "Fishers, Indiana, USA",
             "principal": "Graeme Lowdon",
             "pu": "Ferrari (customer)",
             "drivers": "Valtteri Bottas (FIN) / Sergio Perez (MEX)",
@@ -238,8 +238,8 @@ def generate():
     )
 
     rising_stars = [
-        ["Arvid Lindblad", "GBR", "Racing Bulls", "The grid's ONLY rookie. 17 years old; one of the youngest F1 drivers ever."],
-        ["Isack Hadjar", "FRA", "Red Bull Racing", "Second year. Strong 2025 at Racing Bulls (51 pts, podium). 2024 F2 Champion."],
+        ["Arvid Lindblad", "GBR", "Racing Bulls", "The grid's ONLY rookie. 18 years old; one of the youngest F1 drivers ever."],
+        ["Isack Hadjar", "FRA", "Red Bull Racing", "Second year. Strong 2025 at Racing Bulls (51 pts, podium). 2024 F2 runner-up."],
         ["Kimi Antonelli", "ITA", "Mercedes", "Second year. Italian prodigy in his sophomore Mercedes season."],
         ["Oliver Bearman", "GBR", "Haas", "Second year. Scored 41 points as a Haas rookie in 2025."],
         ["Gabriel Bortoleto", "BRA", "Sauber / Audi", "Second year. 2024 F2 Champion; solid debut season at Sauber."],
@@ -249,7 +249,7 @@ def generate():
     pdf.styled_table(
         headers=["Driver", "Nat.", "Team", "Notes"],
         data=rising_stars,
-        col_widths=[35, 15, 42, 100],
+        col_widths=[30, 12, 36, 114],
         font_size=9,
     )
 
@@ -268,7 +268,7 @@ def generate():
     pdf.subsection_header("Verstappen's Redemption")
     pdf.body_text(
         "Max Verstappen lost his title in 2025 after a remarkable late-season "
-        "charge that saw him win 6 of the final 9 races - but it wasn't enough, "
+        "charge - but it wasn't enough, "
         "falling 2 points short. The four-time champion (2021-2024) enters 2026 "
         "with a rage-fueled determination to reclaim what he considers his. New "
         "regulations could either help or hinder Red Bull's cause."
@@ -299,11 +299,11 @@ def generate():
         "history. With the biggest regulation change in a decade, defending "
         "champion Norris, a vengeful Verstappen, Hamilton seeking redemption "
         "at Ferrari, a new manufacturer (Audi), a new team (Cadillac), and "
-        "the grid's youngest-ever rookie in Lindblad, every race weekend "
+        "one of the youngest rookies in F1 history in Lindblad, every race weekend "
         "will offer drama."
     )
 
-    pdf.save("F1-2026-Driver-Team-Guide.pdf")
+    pdf.save("2026-Driver-Team-Guide.pdf")
 
 
 if __name__ == "__main__":

@@ -30,7 +30,7 @@ def color_swatch_row(pdf, swatches):
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 TV Graphics Guide",
+        title="2026 TV Graphics Guide",
         subtitle="Understanding the Broadcast Graphics"
     )
     pdf.add_cover_page()
@@ -372,9 +372,9 @@ def generate():
         col_widths=[19.2] * 10,
         font_size=8,
     )
-    pdf.body_text("+ 1 point for fastest lap in the Grand Prix (if finishing in top 10).")
+    pdf.body_text("No bonus point for fastest lap (abolished from 2025 onwards).")
 
-    pdf.save("F1-2026-TV-Graphics-Guide.pdf")
+    pdf.save("2026-TV-Graphics-Guide.pdf")
 
 
 if __name__ == "__main__":

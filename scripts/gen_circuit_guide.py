@@ -12,7 +12,7 @@ def circuit_profile(pdf, name, location, length, turns, lap_record,
     x = 10
     card_w = pdf.w - 20
 
-    # Build the description text
+    # Build the description text with line breaks between sections
     desc_parts = []
     if special:
         desc_parts.append(special)
@@ -20,7 +20,7 @@ def circuit_profile(pdf, name, location, length, turns, lap_record,
         desc_parts.append(f"Famous sections: {famous_corners}")
     if overtaking:
         desc_parts.append(f"Overtaking: {overtaking}")
-    desc_text = " ".join(desc_parts)
+    desc_text = "\n".join(desc_parts)
 
     # Calculate height
     pdf.set_font("Helvetica", "", 9)
@@ -73,7 +73,7 @@ def circuit_profile(pdf, name, location, length, turns, lap_record,
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Circuit Guide",
+        title="2026 Circuit Guide",
         subtitle="The Tracks of Formula 1"
     )
     pdf.add_cover_page()
@@ -379,7 +379,7 @@ def generate():
         "air, making them unique engineering challenges."
     )
 
-    pdf.save("F1-2026-Circuit-Guide.pdf")
+    pdf.save("2026-Circuit-Guide.pdf")
 
 
 if __name__ == "__main__":

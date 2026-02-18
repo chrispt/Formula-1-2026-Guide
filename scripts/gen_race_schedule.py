@@ -8,7 +8,7 @@ import f1_graphics
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Race Schedule",
+        title="2026 Race Schedule",
         subtitle="Race Calendar & Key Dates"
     )
     pdf.add_cover_page()
@@ -147,7 +147,7 @@ def generate():
         "covering 24 races across 21 countries on 5 continents."
     )
 
-    pdf.save("F1-2026-Race-Schedule.pdf")
+    pdf.save("2026-Race-Schedule.pdf")
 
 
 if __name__ == "__main__":

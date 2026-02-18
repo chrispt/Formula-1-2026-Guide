@@ -7,7 +7,7 @@ from f1_pdf_style import F1PDF
 
 def generate():
     pdf = F1PDF(
-        title="F1 2026 Glossary",
+        title="2026 Glossary",
         subtitle="Terminology & Abbreviations"
     )
     pdf.add_cover_page()
@@ -239,7 +239,7 @@ def generate():
         font_size=9,
     )
 
-    pdf.save("F1-2026-Glossary.pdf")
+    pdf.save("2026-Glossary.pdf")
 
 
 if __name__ == "__main__":
