@@ -22,14 +22,14 @@ def generate():
     )
 
     grid = [
-        ["1",  "Red Bull Racing",      "Honda", "Max Verstappen",    "Isack Hadjar"],
+        ["1",  "Red Bull Racing",      "Ford", "Max Verstappen",    "Isack Hadjar"],
         ["2",  "Ferrari",              "Ferrari", "Lewis Hamilton",    "Charles Leclerc"],
         ["3",  "McLaren",              "Mercedes", "Lando Norris",     "Oscar Piastri"],
         ["4",  "Mercedes",             "Mercedes", "George Russell",   "Kimi Antonelli"],
         ["5",  "Aston Martin",         "Honda", "Fernando Alonso",   "Lance Stroll"],
         ["6",  "Alpine",               "Mercedes", "Pierre Gasly",     "Franco Colapinto"],
         ["7",  "Williams",             "Mercedes", "Carlos Sainz",     "Alexander Albon"],
-        ["8",  "Racing Bulls",         "Honda", "Liam Lawson",       "Arvid Lindblad"],
+        ["8",  "Racing Bulls",         "Ford", "Liam Lawson",       "Arvid Lindblad"],
         ["9",  "Haas",                 "Ferrari", "Esteban Ocon",     "Oliver Bearman"],
         ["10", "Sauber (Audi)",        "Audi", "Nico Hulkenberg",   "Gabriel Bortoleto"],
         ["11", "Cadillac",             "Ferrari", "Valtteri Bottas",   "Sergio Perez"],
@@ -57,7 +57,7 @@ def generate():
             "name": "Red Bull Racing",
             "base": "Milton Keynes, UK",
             "principal": "Christian Horner",
-            "pu": "Honda RBPT",
+            "pu": "Ford",
             "drivers": "Max Verstappen (NED) / Isack Hadjar (FRA)",
             "story": (
                 "Four-time consecutive constructors' champions (2021-2024), Red Bull "
@@ -121,7 +121,7 @@ def generate():
             "name": "Aston Martin Aramco",
             "base": "Silverstone, UK",
             "principal": "Adrian Newey",
-            "pu": "Honda RBPT",
+            "pu": "Honda",
             "drivers": "Fernando Alonso (ESP) / Lance Stroll (CAN)",
             "story": (
                 "Fernando Alonso, now 44, continues to defy age in what could be "
@@ -163,7 +163,7 @@ def generate():
             "name": "Visa Cash App Racing Bulls",
             "base": "Faenza, Italy",
             "principal": "Laurent Mekies",
-            "pu": "Honda RBPT",
+            "pu": "Ford",
             "drivers": "Liam Lawson (NZL) / Arvid Lindblad (GBR)",
             "story": (
                 "Liam Lawson takes on the team leader role after a turbulent 2025 "

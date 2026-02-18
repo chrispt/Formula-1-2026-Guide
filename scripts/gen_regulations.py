@@ -73,7 +73,8 @@ def generate():
         data=[
             ["Ferrari", "Ferrari, Haas, Cadillac", "Incumbent"],
             ["Mercedes", "Mercedes, McLaren, Alpine, Williams", "Incumbent"],
-            ["Honda RBPT", "Red Bull Racing, Racing Bulls, Aston Martin", "Incumbent"],
+            ["Ford", "Red Bull Racing, Racing Bulls", "New partnership"],
+            ["Honda", "Aston Martin", "Incumbent"],
             ["Audi", "Sauber/Audi", "New entrant"],
         ],
         col_widths=[35, 80, 30],
@@ -223,7 +224,7 @@ def generate():
         ["Budget Cap", "~$140M", "$215M (expanded scope)"],
         ["Teams", "10", "11 (Cadillac joins)"],
         ["PU Suppliers", "4 (Ferrari, Merc, Honda, Renault)",
-         "4 (Ferrari, Merc, Honda, Audi)"],
+         "5 (Ferrari, Merc, Ford, Honda, Audi)"],
     ]
 
     pdf.styled_table(
